@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-22T20:00:00Z",
+  "node_id": "node_demo0001",
+  "ufr_hz": 1.62,
+  "delta_q": 0.05,
+  "coherence": 0.93,
+  "resonance_reading_hz_raw": 586.708,
+  "hr_bpm": 65,
+  "hrv_ms": 26,
+  "stress_0_10": 0.5,
+  "sensors": {"watch_os":"watchOS 26","device_model":"WatchUltra","app_version":"1.0.0"},
+  "location_band": {"level":"coarse-city","city":"New York","region":"NY"},
+  "solar_inputs": {"flare_class":"X1.4","cme_count":7,"solar_wind_kmps":426.0,"pressure_npa":426.0,"proton_density_pcc":6.2},
+  "notes": "smoke test"
+}

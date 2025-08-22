@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MEFI Resonance Reading",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "node_id",
+    "ufr_hz",
+    "delta_q",
+    "coherence",
+    "sensors",
+    "location_band"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "node_id": {
+      "type": "string",
+      "minLength": 8,
+      "description": "Pseudonymous ID; no names/emails."
+    },
+    "ufr_hz": {
+      "type": "number",
+      "description": "Universal Frequency Resonance (Hz)"
+    },
+    "delta_q": {
+      "type": "number",
+      "description": "Coherent quantum fluctuation magnitude (unitless 0\u20131+)"
+    },
+    "coherence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "resonance_reading_hz_raw": {
+      "type": "number",
+      "description": "If present, validator will enforce decimal-shift rule"
+    },
+    "resonance_reading_hz": {
+      "type": "number",
+      "description": "Raw shifted one decimal left by pipeline"
+    },
+    "hr_bpm": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "hrv_ms": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "stress_0_10": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "sensors": {
+      "type": "object",
+      "properties": {
+        "watch_os": {
+          "type": "string"
+        },
+        "device_model": {
+          "type": "string"
+        },
+        "app_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "location_band": {
+      "type": "object",
+      "required": [
+        "level"
+      ],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "none",
+            "coarse-city",
+            "coarse-region"
+          ]
+        },
+        "city_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "solar_inputs": {
+      "type": "object",
+      "properties": {
+        "flare_class": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cme_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "solar_wind_kmps": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "pressure_npa": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "proton_density_pcc": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
